@@ -1,0 +1,40 @@
+1) Criar o modelo relacional para o exercício da biblioteca.
+* livro(_ISBN_(PK), titulo, ano, editora, autores, codigo_categoria(FK))
+* autores(nome, nacionalidade)
+* categoria(codigo(PK), descrição)
+
+2) Criar as tabelas no site  https://sqliteonline.com/ para o modelo relacional :
+
+* medico(_crm_, salario, nome, especialidade)
+
+* paciente(_cpf_, nome, telefone1, telefone2,telefone3, endereco, rg, medico_crm, horario_visita, quarto_numero)
+
+* quarto(_numero_, andar)
+
+* tratamento(medico_crm, paciente_cpf, descricao) 
+
+
+-----
+Documentação para create table
+https://www.w3schools.com/sql/sql_create_table.asp
+
+
+Tipos de dados do SQLLite
+https://www.sqlite.org/datatype3.html
+
+Documentação do sqllite https://www.sqlite.org/lang.html
+
+
+
+* Observação
+
+Criar as primary keys como no exemplo
+
+create table pessoa (cpf varchar(11) primary key, nome varchar(30));
+
+insert into pessoa (cpf, nome) values ('999', 'luis');
+
+select * from pessoa;
+
+
+create table paciente (cpf varchar(11) PRIMARY KEY, nome varchar(30), telefone1 varchar(11), telefone2 varchar(11), telefone3 varchar(11), endereço Varchar(50), rg varchar(9), medico_crm varchar(8), horario_visita varchar(10), quarto_numero varchar(4));

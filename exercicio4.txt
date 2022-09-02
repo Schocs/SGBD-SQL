@@ -1,0 +1,36 @@
+create table artista (
+id SERIAL primary KEY ,
+nome varchar(255),
+popularidade integer,
+seguidores integer);
+create table genero(
+id serial primary key,
+nome varchar(255));
+
+create table musica (
+id serial primary key,
+nome varchar(255),
+url varchar(255),
+artista_id integer,
+foreign key (artista_id) references artista(id));
+
+create table pais(
+id serial primary key,
+sigla text,
+nome text);
+
+create table artista_genero(
+id serial primary key,
+artista_id integer,
+genero_id integer,
+foreign key(artista_id) references artista(id),
+foreign key(genero_id) references genero(id));
+
+create table pais_musica(
+id serial primary key,
+pais_id integer,
+musica_id integer,
+posicao integer,
+stream integer,
+foreign key(pais_id) references pais(id),
+foreign key(musica_id) references musica(id));

@@ -1,0 +1,6 @@
+create table telefone(
+codigo serial 	primary key not null,
+codigo_cliente integer,
+foreign key (codigo_cliente) references cliente(codigo),
+telefone varchar(11)
+);

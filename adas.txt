@@ -1,0 +1,57 @@
+create table artista (
+id SERIAL primary KEY ,
+nome varchar(255),
+popularidade integer,
+seguidores integer);
+create table genero(
+id serial primary key,
+nome varchar(255));
+create table musica (
+id serial primary key,
+nome varchar(255),
+url varchar(255),
+artista_id integer,
+foreign key (artista_id) references artista(id));
+create table pais(
+id serial primary key,
+sigla text,
+nome text);
+create table artista_genero(
+id serial primary key,
+artista_id integer,
+genero_id integer,
+foreign key(artista_id) references artista(id),
+foreign key(genero_id) references genero(id));
+create table pais_musica()
+id serial primary key,
+pais_id integer,
+musica_id integer,
+posicao integer,
+stream integer,
+foreign key(pais_id) references pais(id),
+foreign key(musica_id) references musica(id));
+insert into artista(nome, popularidade, seguidores) values
+('Luis Fonsi', 93, 738730),
+('Lil Uzi Vert', 91, 1379860),
+('DJ Khaled', 94, 1182138);
+insert into genero (nome) values
+('latin'),
+('latin pop');
+insert into musica(nome, url, artista_id) values
+('Deixe-me ir - Acústico', 'https://open.spotify.com/track/2srL4DYBekshpbprS6H0mO', (select id from artista where nome like '1Kilo'))
+insert into pais(sigla, nome) values
+('ad', 'Andorra'),
+('ae', 'United Arab Emirates');
+
+insert into artista_genero(genero_id, artista_id) values
+((select id from genero where nome like 'latin'),
+(select id from artista where nome like 'Luis Fonsi');
+insert into artista_genero(genero_id, artista_id) values
+((select id from genero where nome like 'latin pop'),
+(select id from artista where nome like 'Luis Fonsi'));
+insert into pais_musica(pais_id, musica_id, posicao, stream) values
+((select id from pais where sigla like 'br'),
+(select id from musica where nome like 'Deixe-me ir - Acústico'), 41, 144732);
+
+
+select*from pais

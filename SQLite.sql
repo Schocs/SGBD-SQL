@@ -1,0 +1,1 @@
+INSERT INTO medico(crm, nome, especialidade) VALUES('111110RJ', 'Maia', 'Obstetra');

@@ -1,0 +1,23 @@
+	Cursos
+id_curso(pk)	etc	id_prof(fk)
+
+	Prof
+id_prof(PK)	etc	
+
+	prof_cursos
+id_prof(FK)	id_curso(fk)
+01		101
+01		102
+02		103
+02		201
+02		501
+03		202
+03		203
+
+	aluno
+id_aluno(PK)	cadastro	id_curso(fk)
+
+	certificado_aluno
+id_aluno(fk)	id_curso(fk)	nota_aluno
+01		101		7
+01		501		5
